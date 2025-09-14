@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ESTILOS DE LUTA</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body, html { height: 100%; overflow: hidden; font-family: sans-serif; position: relative; }
+
+    /* Vídeo de fundo */
+    #bg-video {
+      position: fixed; top: 0; left: 0;
+      min-width: 100%; min-height: 100%;
+      object-fit: cover; z-index: -3;
+    }
+
+    /* Overlay escura padrão */
+    .overlay {
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    /* Efeito de escuridão gradiente */
+    .darkness {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 2;
+      pointer-events: none;
+      opacity: 0;
+      background: radial-gradient(circle,
+        transparent 0%,         
+        rgba(255,192,203,0.6) 20%, 
+        rgba(255,255,0,0.7) 40%,   
+        rgba(255,0,0,0.85) 60%,    
+        rgba(0,0,0,0.9) 80%        
+      );
+      mix-blend-mode: multiply;
+    }
+
+    /* Container dos botões */
+    .cards {
+      display: flex; flex-direction: column; gap: 20px;
+      justify-content: center; align-items: center;
+      height: 100vh; position: relative; z-index: 3;
+      opacity: 0; transition: opacity 1s ease-in-out;
+    }
+    .cards.show { opacity: 1; }
+
+    /* Botão blob tema sangue */
+    .blob-btn {
+      position: relative;
+      display: inline-block;
+      padding: 20px 46px;
+      text-align: center;
+      text-transform: uppercase;
+      color: #8B0000;
+      font-size: 16px;
+      font-weight: bold;
+      background: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      border-radius: 30px;
+      transition: color 0.5s;
+      text-decoration: none;
+    }
+    .blob-btn:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 2px solid #8B0000;
+      border-radius: 30px;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .blob-btn:after {
+      content: "";
+      position: absolute;
+      left: 3px; top: 3px;
+      right: 0; bottom: 0;
+      border-radius: 30px;
+      transition: all 0.3s 0.2s;
+      z-index: -2;
+      pointer-events: none;
+    }
+    .blob-btn:hover { color: #ffffff; }
+    .blob-btn:hover:after {
+      left: 0; top: 0;
+      transition: all 0.3s;
+    }
+    .blob-btn__inner {
+      position: absolute;
+      inset: 0;
+      border-radius: 30px;
+      background: #050505;
+      z-index: -1;
+      overflow: hidden;
+    }
+    .blob-btn__blobs {
+      position: relative;
+      display: block;
+      height: 100%;
+      filter: url(#goo);
+    }
+    .blob-btn__blob {
+      position: absolute;
+      top: 2px;
+      width: 25%;
+      height: 100%;
+      background: #B22222;
+      border-radius: 100%;
+      transform: translate3d(0,150%,0) scale(1.4);
+      transition: transform 0.45s;
+    }
+    .blob-btn__blob:nth-child(1) { left: 0%;   transition-delay: 0s; }
+    .blob-btn__blob:nth-child(2) { left: 25%;  transition-delay: 0.08s; }
+    .blob-btn__blob:nth-child(3) { left: 50%;  transition-delay: 0.16s; }
+    .blob-btn__blob:nth-child(4) { left: 75%;  transition-delay: 0.24s; }
+    .blob-btn:hover .blob-btn__blob {
+      transform: translateZ(0) scale(1.2);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Vídeo de fundo -->
+  <video autoplay muted playsinline id="bg-video">
+    <source src="video_fundo.mp4" type="video/mp4">
+  </video>
+  <div class="overlay"></div>
+
+  <!-- Camada de escuridão -->
+  <div class="darkness" id="darkness"></div>
+
+  <!-- Filtro Gooey -->
+  <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute">
+    <defs>
+      <filter id="goo">
+        <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
+        <feColorMatrix in="blur" mode="matrix"
+          values="1 0 0 0 0
+                  0 1 0 0 0
+                  0 0 1 0 0
+                  0 0 0 20 -10" result="goo" />
+        <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- Botões -->
+  <div class="cards" id="cards">
+    <a href="jiu_jitsu.html" class="blob-btn">
+      JIU JÍTSU BRASILEIRO
+      <span class="blob-btn__inner">
+        <span class="blob-btn__blobs">
+          <span class="blob-btn__blob"></span>
+          <span class="blob-btn__blob"></span>
+          <span class="blob-btn__blob"></span>
+          <span class="blob-btn__blob"></span>
+        </span>
+      </span>
+    </a>
+
+    <a href="taekwondo.html" class="blob-btn">
+      TAEKWONDO
+      <span class="blob-btn__inner">
+        <span class="blob-btn__blobs">
+          <span class="blob-btn__blob"></span>
+          <span class="blob-btn__blob"></span>
+          <span class="blob-btn__blob"></span>
+          <span class="blob-btn__blob"></span>
+        </span>
+      </span>
+    </a>
+
+    <a href="judo.html" class="blob-btn">
+      JUDÔ
+      <span class="blob-btn__inner">
+        <span class="blob-btn__blobs">
+          <span class="blob-btn__blob"></span>
+          <span class="blob-btn__blob"></span>
+          <span class="blob-btn__blob"></span>
+          <span class="blob-btn__blob"></span>
+        </span>
+      </span>
+    </a>
+  </div>
+
+  <script>
+    const video = document.getElementById('bg-video');
+    const darkness = document.getElementById('darkness');
+    const cards = document.getElementById('cards');
+
+    video.playbackRate = 1.5;
+
+    // Atualiza o efeito de escuridão nos últimos 2 segundos do vídeo
+    video.addEventListener('timeupdate', () => {
+      const tempoRestante = video.duration - video.currentTime;
+      if (tempoRestante <= 2) { // últimos 2 segundos
+        const progresso = 1 - (tempoRestante / 2); // 0 → 1
+        darkness.style.opacity = progresso.toFixed(2);
+      }
+    });
+
+    // Quando o vídeo terminar, mostra botões
+    video.addEventListener('ended', () => {
+      darkness.style.opacity = 1; // garante 100%
+      cards.classList.add('show');
+    });
+  </script>
+
+</body>
+</html>

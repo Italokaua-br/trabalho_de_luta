@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>JIU JÍTSU</title>
+  <style>
+    :root {
+      --neon: #00ffb1;
+      --bg: #000;
+      --text: #fff;
+      --radius: 12px;
+      --gap: 20px;
+    }
+
+    body {
+      margin: 0;
+      background: #111;
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
+    }
+
+    header, footer {
+      background: rgba(0,0,0,0.85);
+      text-align: center;
+      padding: 12px;
+      font-size: 2rem;
+      font-weight: bold;
+      border-bottom: 3px solid var(--neon);
+      box-shadow: 0 0 10px var(--neon);
+    }
+
+    footer {
+      border-top: 3px solid var(--neon);
+      border-bottom: none;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      box-shadow: 0 0 10px var(--neon);
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--gap);
+      padding: var(--gap);
+      padding-bottom: 100px;
+    }
+
+    .quadro-video {
+      aspect-ratio: 4 / 3;
+      border-radius: var(--radius);
+      background: linear-gradient(45deg, transparent 5%, #000 5%);
+      box-shadow: 6px 0 0 var(--neon);
+      overflow: hidden;
+    }
+
+    .quadro-video video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .bloco-info {
+      background: var(--bg);
+      border: 1px solid var(--neon);
+      border-radius: var(--radius);
+      box-shadow: 0 0 10px var(--neon);
+      padding: 26px;
+      max-height:700px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: var(--neon) #222;
+      text-align: center;
+    }
+
+    .bloco-info h1 {
+      margin-bottom: 26px;
+      font-size: 1.rem;
+      color: var(--neon);
+    }
+
+    .bloco-info p {
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .button {
+      background: linear-gradient(to top left, #dfe9f3, #ecf0f3);
+      border: 1.5px solid #ccd6dd;
+      color: #0f172a;
+      font-weight: 700;
+      padding: 1rem 2.5rem;
+      border-radius: 9999px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      box-shadow:
+        0 5px 0 #0ea5e9,
+        0 10px 15px rgba(0, 0, 0, 0.15),
+        inset 0 1px 1px rgba(255, 255, 255, 0.6),
+        inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+      margin: 40px auto;
+      display: block;
+    }
+
+    .button:hover {
+      box-shadow:
+        0 6px 0 #0284c7,
+        0 14px 20px rgba(0, 0, 0, 0.2),
+        inset 0 1px 1px rgba(255, 255, 255, 0.6),
+        inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+    }
+
+    .button:active {
+      transform: translateY(5px);
+      box-shadow:
+        0 2px 0 #0284c7,
+        0 6px 10px rgba(0, 0, 0, 0.25),
+        inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    #cursorCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>JIU JÍTSU</header>
+
+<main>
+  <!-- Vídeo -->
+  <div class="quadro-video">
+    <video src="luta_jiu.mp4" autoplay loop muted playsinline></video>
+  </div>
+
+  <!-- Quadro de informações com rolagem -->
+  <div class="bloco-info">
+    
+<h1>O que é o Jiu-Jitsu</h1>
+<p>O jiu-jitsu é uma arte marcial focada em lutas no solo, alavancas, estrangulamentos e imobilizações. Ao contrário de estilos que priorizam golpes em pé, o jiu-jitsu ensina como controlar e finalizar o oponente com técnica e precisão, mesmo quando se está em desvantagem física. É uma luta de inteligência corporal, onde o posicionamento vale mais que força.
+Existem duas vertentes principais: o jiu-jitsu tradicional japonês, que influenciou várias artes marciais, e o jiu-jitsu brasileiro (BJJ), desenvolvido pela família Gracie no século XX. O BJJ se tornou mundialmente famoso por sua eficácia em competições e por revolucionar o conceito de luta realista e técnica.
+</p>
+<h1>Benefícios do Jiu-Jitsu
+</h1>
+<p>
+Fisicamente, o jiu-jitsu melhora a resistência, força funcional, mobilidade e consciência corporal. Os treinos exigem esforço constante, com movimentos que trabalham o corpo inteiro, especialmente o core e os membros superiores. É uma excelente atividade para quem busca condicionamento físico completo.
+Mentalmente, ele desenvolve paciência, estratégia e resiliência emocional. Como cada luta é um quebra-cabeça, o praticante aprende a pensar sob pressão, tomar decisões rápidas e manter a calma em situações difíceis. Além disso, o ambiente de respeito e camaradagem fortalece valores como humildade e disciplina.
+</p>
+<h1>Jiu-Jitsu como Defesa Pessoal</h1>
+<p>
+O jiu-jitsu é altamente eficaz como defesa pessoal, especialmente em situações onde o confronto vai para o chão. Ele ensina como neutralizar ameaças, escapar de posições perigosas e controlar o agressor sem depender de força bruta, o que o torna ideal para pessoas de qualquer porte físico.
+Sua abordagem técnica permite que o praticante vença oponentes maiores e mais fortes, usando alavancas e posicionamento. Por isso, é muito utilizado por forças de segurança e civis que buscam uma defesa pessoal realista, com foco em controle e segurança, não em agressão.
+</p>
+
+<h1>Riscos e Cuidados
+</h1>
+<p>
+Como toda arte marcial de contato, o jiu-jitsu apresenta riscos como lesões articulares, torções e contusões, especialmente nos joelhos, ombros e pescoço. O uso de equipamentos adequados, como o kimono (gi), e a supervisão de instrutores experientes são essenciais para minimizar esses riscos.
+Além disso, o respeito às regras e ao parceiro de treino é fundamental. O jiu-jitsu valoriza o controle e a técnica acima da força, e praticar com responsabilidade é o que garante uma evolução segura e saudável. Quando bem orientado, é uma das artes marciais mais seguras e adaptáveis.
+</p>
+<h1>
+ História do Jiu-Jitsu
+</h1>
+<p>
+O jiu-jitsu tem origem no Japão feudal, como parte do treinamento dos samurais. Com o tempo, suas técnicas foram sistematizadas e influenciaram outras artes como o judô. No início do século XX, o mestre Mitsuyo Maeda levou o jiu-jitsu ao Brasil, onde ensinou à família Gracie.
+A partir daí, nasceu o jiu-jitsu brasileiro (BJJ), que focou nas técnicas de solo e finalizações. O estilo ganhou notoriedade mundial com os eventos de MMA, especialmente o UFC, onde lutadores de BJJ demonstraram sua superioridade técnica. Hoje, o BJJ é praticado em todos os continentes e continua evoluindo.
+</p>
+<h1>
+ Graus e Faixas
+</h1>
+<p>
+O sistema de graduação do jiu-jitsu é dividido em faixas coloridas para iniciantes e faixas pretas para praticantes avançados. No BJJ, o progresso é mais lento e rigoroso, valorizando o tempo de prática, o domínio técnico e a postura ética. Cada faixa representa uma etapa de maturidade no tatame.
+Além da técnica, a graduação também exige comportamento exemplar, respeito aos colegas e contribuição para a comunidade. Os exames e promoções são momentos de celebração e reconhecimento, onde o praticante demonstra não apenas habilidade, mas também evolução pessoal e filosófica.
+</p>
+<H1>
+Filosofia Central
+<p>
+A filosofia do jiu-jitsu gira em torno da eficiência, humildade e controle emocional. Ele ensina que o verdadeiro poder está em saber usar a técnica com inteligência, respeitar o adversário e manter a calma em qualquer situação. É uma arte que valoriza o crescimento pessoal acima da vitória.
+No tatame, o ego é deixado de lado. Cada treino é uma oportunidade de aprender, errar e melhorar. O jiu-jitsu forma indivíduos mais conscientes, resilientes e preparados para enfrentar os desafios da vida com equilíbrio e sabedoria. É uma jornada de autoconhecimento constante.
+</p>
+<h1>
+Jiu-Jitsu nos Jogos e Mídia
+</h1>
+<p>
+O jiu-jitsu é cada vez mais presente em jogos de luta e filmes de ação, especialmente por sua realismo e complexidade técnica. Personagens que usam BJJ costumam ser estrategistas, capazes de virar o jogo mesmo em desvantagem, o que cria cenas intensas e imprevisíveis.
+Além disso, o jiu-jitsu transmite uma imagem de inteligência tática e domínio emocional, muito valorizada em narrativas modernas. Nos jogos, ele representa o lutador que vence com técnica e paciência, e não com força bruta — o que o torna uma escolha perfeita para protagonistas e anti-heróis.
+</p>
+
+
+
+
+
+  </div>
+</main>
+
+<footer>Rickson Gracie — BJJ</footer>
+
+
+
+<!--------                         BOTÃO DE VOLTAR                                   ------->
+ <!-- BOTÕES DE AÇÃO -->
+<div style="display: flex; justify-content: center; gap: 20px; margin: 40px 0 120px;">
+  <!-- Botão de Voltar -->
+  <a href="index.html">
+    <button class="button">☝️☝️VOLTAR☝️☝️</button>
+  </a>
+
+  <!-- Botão de Download -->
+  <a href="trabalho_digitalizado.pdf" download>
+    <button class="button">📥 DOWNLOAD DE TRABALHO 📥</button>
+  </a>
+</div>
+
+
+<footer>Rickson Gracie — BJJ</footer>
+<style>
+  /* From Uiverse.io by modalaiso_9193 */ 
+.button {
+  background: linear-gradient(to top left, #dfe9f3, #ecf0f3);
+  border: 1px solid #ccd6dd;
+  color: #0f172a;
+  font-weight: 700;
+  padding: 1rem 2.5rem;
+  border-radius: 9999px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow:
+    0 5px 0 #0ea5e9,
+    0 10px 15px rgba(0, 0, 0, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.button:hover {
+  box-shadow:
+    0 6px 0 #0284c7,
+    0 14px 20px rgba(0, 0, 0, 0.2),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+.button:active {
+  transform: translateY(5px);
+  box-shadow:
+    0 2px 0 #0284c7,
+    0 6px 10px rgba(0, 0, 0, 0.25),
+    inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.glow {
+  box-shadow:
+    0 0 20px rgba(14, 165, 233, 0.3),
+    0 0 40px rgba(14, 165, 233, 0.1);
+}
+
+</STYLE>
+
+<div>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TAEKWONDO</title>
+  <style>
+    :root {
+      --neon: #00ffb1;
+      --bg: #000;
+      --text: #fff;
+      --radius: 12px;
+      --gap: 20px;
+    }
+
+    body {
+      margin: 0;
+      background: #111;
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
+    }
+
+    header, footer {
+      background: rgba(0,0,0,0.85);
+      text-align: center;
+      padding: 12px;
+      font-size: 2rem;
+      font-weight: bold;
+      border-bottom: 3px solid var(--neon);
+      box-shadow: 0 0 10px var(--neon);
+    }
+
+    footer {
+      border-top: 3px solid var(--neon);
+      border-bottom: none;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      box-shadow: 0 0 10px var(--neon);
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--gap);
+      padding: var(--gap);
+      padding-bottom: 100px;
+    }
+
+    .quadro-video {
+      aspect-ratio: 4 / 3;
+      border-radius: var(--radius);
+      background: linear-gradient(45deg, transparent 5%, #000 5%);
+      box-shadow: 6px 0 0 var(--neon);
+      overflow: hidden;
+    }
+
+    .quadro-video video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .bloco-info {
+      background: var(--bg);
+      border: 1px solid var(--neon);
+      border-radius: var(--radius);
+      box-shadow: 0 0 10px var(--neon);
+      padding: 26px;
+      max-height:700px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: var(--neon) #222;
+      text-align: center;
+    }
+
+    .bloco-info h1 {
+      margin-bottom: 26px;
+      font-size: 1.rem;
+      color: var(--neon);
+    }
+
+    .bloco-info p {
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .button {
+      background: linear-gradient(to top left, #dfe9f3, #ecf0f3);
+      border: 1.5px solid #ccd6dd;
+      color: #0f172a;
+      font-weight: 700;
+      padding: 1rem 2.5rem;
+      border-radius: 9999px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      box-shadow:
+        0 5px 0 #0ea5e9,
+        0 10px 15px rgba(0, 0, 0, 0.15),
+        inset 0 1px 1px rgba(255, 255, 255, 0.6),
+        inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+      margin: 40px auto;
+      display: block;
+    }
+
+    .button:hover {
+      box-shadow:
+        0 6px 0 #0284c7,
+        0 14px 20px rgba(0, 0, 0, 0.2),
+        inset 0 1px 1px rgba(255, 255, 255, 0.6),
+        inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+    }
+
+    .button:active {
+      transform: translateY(5px);
+      box-shadow:
+        0 2px 0 #0284c7,
+        0 6px 10px rgba(0, 0, 0, 0.25),
+        inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    #cursorCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>TAEKWONDO</header>
+
+<main>
+  <!-- Vídeo -->
+  <div class="quadro-video">
+    <video src="tak_luta.mp4" autoplay loop muted playsinline></video>
+  </div>
+
+  <!-- Quadro de informações com rolagem -->
+  <div class="bloco-info">
+    <h1>    O que é o Taekwondo</h1>
+<p>O taekwondo é uma arte marcial coreana que surgiu oficialmente na década de 1950, embora suas raízes remontem a práticas antigas como o taekkyeon. Seu nome significa “caminho dos pés e das mãos”, destacando o uso intenso de chutes altos, rápidos e precisos, além de golpes com os braços. É conhecido por sua estética dinâmica e por exigir agilidade, força e coordenação.
+Mais do que uma técnica de combate, o taekwondo é uma disciplina que une corpo e mente. Ele é praticado em mais de 200 países e se tornou esporte olímpico em 2000. Sua filosofia valoriza o respeito, a perseverança e o autocontrole, formando praticantes que buscam não apenas vencer, mas evoluir como indivíduos.
+
+<h1>Benefícios do Taekwondo</h1>
+<p>Fisicamente, o taekwondo é excelente para desenvolver flexibilidade, força nas pernas, resistência cardiovascular e reflexos rápidos. Os treinos envolvem movimentos explosivos e repetitivos que trabalham o corpo inteiro, tornando-o ideal para quem busca condicionamento físico completo.
+Mentalmente, ele fortalece a disciplina, foco e autoconfiança. A prática constante dos movimentos, combinada com a superação de desafios técnicos e emocionais, ajuda o praticante a lidar melhor com o estresse e a manter a mente equilibrada. Além disso, o ambiente de respeito e hierarquia promove valores sociais importantes.
+
+<h1>Taekwondo como Defesa Pessoal</h1>
+<p>O taekwondo oferece técnicas eficazes de defesa pessoal, especialmente por seus chutes potentes e rápidos, capazes de manter o agressor à distância. Embora seja mais conhecido por sua aplicação esportiva, muitos movimentos podem ser adaptados para situações reais de autodefesa.
+No entanto, como qualquer arte marcial esportiva, o taekwondo exige adaptação e consciência situacional para ser eficaz fora do tatame. A filosofia da não agressão e o controle emocional ensinado nos treinos ajudam o praticante a agir com responsabilidade e evitar confrontos desnecessários.
+
+<h1>Riscos e Cuidados</h1>
+<p>Por ser uma arte marcial de alto impacto, o taekwondo envolve riscos como lesões musculares, torções e contusões, especialmente nos membros inferiores. O uso de equipamentos de proteção e a orientação de instrutores qualificados são fundamentais para garantir a segurança durante os treinos.
+Além disso, é essencial respeitar os limites do corpo e seguir uma rotina de aquecimento, alongamento e recuperação. Quando praticado com responsabilidade, o taekwondo é seguro e extremamente benéfico, promovendo saúde física e mental ao longo da vida.
+
+<h1>História do Taekwondo</h1>
+<p>O taekwondo foi oficialmente estruturado na Coreia do Sul após a Segunda Guerra Mundial, como uma fusão de estilos tradicionais coreanos com influências do karatê japonês. Em 1955, o nome “taekwondo” foi adotado para representar essa nova arte marcial nacional, com foco em disciplina e identidade cultural.
+Desde então, o taekwondo se espalhou pelo mundo, ganhando reconhecimento internacional. Em 2000, tornou-se esporte olímpico, consolidando sua posição como uma das artes marciais mais praticadas globalmente. Sua história é marcada por resiliência, tradição e modernização, refletindo o espírito coreano.</p>
+<h1>Graus e Faixas</h1>
+<p>
+O sistema de graduação do taekwondo é dividido em faixas coloridas (gub) e faixas pretas (dan). Cada faixa representa o progresso técnico e filosófico do praticante, exigindo domínio de movimentos, conhecimento teórico e postura ética. O caminho até a faixa preta é longo e exige dedicação.
+Além da técnica, a graduação também envolve valores como respeito, humildade e perseverança. Os exames são momentos importantes de avaliação e crescimento, onde o praticante demonstra não apenas habilidade física, mas também maturidade emocional e compreensão da filosofia do taekwondo.
+</p>
+<h1>Filosofia Central</h1>
+<p>A filosofia do taekwondo é baseada em cinco princípios: cortesia, integridade, perseverança, autocontrole e espírito indomável. Esses valores são ensinados desde o primeiro dia de treino e fazem parte da formação integral do praticante, dentro e fora do tatame.
+Mais do que lutar, o taekwondo ensina a agir com honra e equilíbrio, buscando sempre o crescimento pessoal. A prática constante desses princípios transforma o taekwondista em alguém mais consciente, respeitoso e preparado para enfrentar os desafios da vida com coragem e sabedoria.
+</p>
+<h1>Taekwondo nos Jogos e Mídia
+</h1>
+<p>
+O taekwondo é muito popular em jogos eletrônicos e filmes por causa de seus chutes acrobáticos e movimentos visuais impactantes. Personagens que usam esse estilo costumam ser ágeis, determinados e disciplinados, o que combina bem com narrativas de ação e superação.
+Além disso, o taekwondo transmite uma imagem de força controlada e honra, o que o torna ideal para protagonistas que lutam por justiça ou proteção. Sua estética marcante e filosofia profunda fazem dele uma escolha frequente em produções que valorizam técnica e valores humanos.
+</p>
+ 
+
+  </div>
+</main>
+
+<footer>Baek Doo San — Tekken</footer>
+
+
+<!--------                         BOTÃO DE VOLTAR                                   ------->
+<!-- BOTÕES DE AÇÃO -->
+<div style="display: flex; justify-content: center; gap: 20px; margin: 40px 0 120px;">
+  <!-- Botão de Voltar -->
+  <a href="index.html">
+    <button class="button">☝️☝️VOLTAR☝️☝️</button>
+  </a>
+
+  <!-- Botão de Download -->
+  <a href="trabalho_digitalizado.pdf" download>
+    <button class="button">📥 DOWNLOAD DE TRABALHO 📥</button>
+  </a>
+</div>
+<STYLE>
+  /* From Uiverse.io by modalaiso_9193 */ 
+.button {
+  background: linear-gradient(to top left, #dfe9f3, #ecf0f3);
+  border: 1px solid #ccd6dd;
+  color: #0f172a;
+  font-weight: 700;
+  padding: 1rem 2.5rem;
+  border-radius: 9999px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow:
+    0 5px 0 #0ea5e9,
+    0 10px 15px rgba(0, 0, 0, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.button:hover {
+  box-shadow:
+    0 6px 0 #0284c7,
+    0 14px 20px rgba(0, 0, 0, 0.2),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+.button:active {
+  transform: translateY(5px);
+  box-shadow:
+    0 2px 0 #0284c7,
+    0 6px 10px rgba(0, 0, 0, 0.25),
+    inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.glow {
+  box-shadow:
+    0 0 20px rgba(14, 165, 233, 0.3),
+    0 0 40px rgba(14, 165, 233, 0.1);
+}
+
+</STYLE>
+
+<div>
+
+</body>
+</html>

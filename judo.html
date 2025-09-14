@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JUDÔ</title>
+  <style>
+    :root {
+      --neon: #00ffb1;
+      --bg: #000;
+      --text: #fff;
+      --radius: 12px;
+      --gap: 20px;
+    }
+
+    body {
+      margin: 0;
+      background: #111;
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
+    }
+
+    header, footer {
+      background: rgba(0,0,0,0.85);
+      text-align: center;
+      padding: 12px;
+      font-size: 2rem;
+      font-weight: bold;
+      border-bottom: 3px solid var(--neon);
+      box-shadow: 0 0 10px var(--neon);
+    }
+
+    footer {
+      border-top: 3px solid var(--neon);
+      border-bottom: none;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      box-shadow: 0 0 10px var(--neon);
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--gap);
+      padding: var(--gap);
+      padding-bottom: 100px;
+    }
+
+    .quadro-video {
+      aspect-ratio: 4 / 3;
+      border-radius: var(--radius);
+      background: linear-gradient(45deg, transparent 5%, #000 5%);
+      box-shadow: 6px 0 0 var(--neon);
+      overflow: hidden;
+    }
+
+    .quadro-video video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .bloco-info {
+      background: var(--bg);
+      border: 1px solid var(--neon);
+      border-radius: var(--radius);
+      box-shadow: 0 0 10px var(--neon);
+      padding: 26px;
+      max-height:700px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: var(--neon) #222;
+      text-align: center;
+    }
+
+    .bloco-info h1 {
+      margin-bottom: 26px;
+      font-size: 1.rem;
+      color: var(--neon);
+    }
+
+    .bloco-info p {
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .button {
+      background: linear-gradient(to top left, #dfe9f3, #ecf0f3);
+      border: 1.5px solid #ccd6dd;
+      color: #0f172a;
+      font-weight: 700;
+      padding: 1rem 2.5rem;
+      border-radius: 9999px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      box-shadow:
+        0 5px 0 #0ea5e9,
+        0 10px 15px rgba(0, 0, 0, 0.15),
+        inset 0 1px 1px rgba(255, 255, 255, 0.6),
+        inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+      margin: 40px auto;
+      display: block;
+    }
+
+    .button:hover {
+      box-shadow:
+        0 6px 0 #0284c7,
+        0 14px 20px rgba(0, 0, 0, 0.2),
+        inset 0 1px 1px rgba(255, 255, 255, 0.6),
+        inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+    }
+
+    .button:active {
+      transform: translateY(5px);
+      box-shadow:
+        0 2px 0 #0284c7,
+        0 6px 10px rgba(0, 0, 0, 0.25),
+        inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    #cursorCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="cursorCanvas"></canvas>
+
+  <header>JUDÔ</header>
+
+  <main>
+    <div class="quadro-video">
+      <video src="luta_judo.mp4" autoplay loop muted playsinline></video>
+    </div>
+
+    <div class="bloco-info">
+      <h1>O QUE É O JUDÔ?</h1>
+      <p>
+        
+O judô é uma arte marcial japonesa criada por Jigoro Kano no final do século XIX. Seu nome significa “caminho suave”, refletindo a ideia de vencer o oponente com técnica e inteligência, e não com força bruta. Ao contrário de outras lutas que priorizam golpes, o judô foca em projeções, imobilizações e alavancas, permitindo que até pessoas menores possam se defender com eficiência.
+Mais do que um esporte, o judô é uma filosofia de vida. Ele valoriza o respeito, a disciplina e o autocontrole, sendo praticado por milhões de pessoas no mundo todo. Sua abordagem educativa o tornou popular em escolas, academias e projetos sociais, sendo reconhecido como uma ferramenta poderosa para o desenvolvimento físico e emocional.
+
+<h1>BENEFICIOS DO JUDÔ</h1>
+<p>A prática do judô traz uma série de benefícios físicos, como aumento da força muscular, melhora da flexibilidade, equilíbrio e coordenação motora. Por envolver movimentos complexos e exigentes, ele também contribui para o condicionamento cardiovascular e o controle do peso corporal, sendo ideal para todas as idades.
+No aspecto mental e emocional, o judô ajuda a desenvolver autoconfiança, paciência e resiliência. Os treinos exigem foco e superação constante, o que fortalece a mente e ensina a lidar com desafios. Além disso, o ambiente de respeito e cooperação promove valores sociais importantes, como empatia e espírito de equipe.</p>
+
+<h1>DEFESA PESSOAL?</h1>
+<p>Embora o judô não tenha sido criado com foco em combate de rua, suas técnicas de queda, controle e imobilização são extremamente úteis em situações reais. Ele ensina a usar o peso e o movimento do oponente contra ele, permitindo que o praticante se defenda sem causar danos excessivos.
+Por ser uma arte baseada em eficiência e não agressividade, o judô é uma excelente opção para quem busca autodefesa com ética. Em vez de atacar, o judoca aprende a neutralizar ameaças com inteligência e precisão, o que o torna ideal para ambientes civis e profissionais onde o uso da força precisa ser moderado.
+</p>
+<h1>Riscos e Cuidados</h1>
+<p>Como qualquer esporte de contato, o judô apresenta riscos, especialmente se praticado sem orientação adequada. Lesões como torções, contusões e quedas mal executadas podem ocorrer, principalmente entre iniciantes ou em treinos intensos. Por isso, o uso de tatames e a supervisão de instrutores experientes são essenciais.
+Além dos cuidados físicos, o judô exige respeito às regras e aos limites do corpo. O excesso de competitividade ou a negligência com o aquecimento e alongamento podem aumentar os riscos. Quando praticado com responsabilidade, o judô é seguro e extremamente benéfico, promovendo saúde e bem-estar.
+</p>
+<h1>História do Judô
+</h1>
+<p>O judô surgiu no Japão em 1882, quando Jigoro Kano decidiu adaptar o antigo jujutsu para criar uma arte marcial mais segura e educativa. Ele retirou as técnicas mais perigosas e organizou os movimentos em um sistema que pudesse ser ensinado em escolas, com foco no desenvolvimento físico e moral dos alunos.
+Com o tempo, o judô se espalhou pelo mundo e ganhou reconhecimento internacional. Em 1964, tornou-se esporte olímpico, e hoje é praticado em mais de 200 países. Sua história é marcada por valores como respeito, disciplina e evolução constante, que continuam inspirando gerações de praticantes.
+</p>
+<h1>Graus e Faixas
+</h1>
+<p>O sistema de graduação do judô é dividido entre faixas coloridas (kyu) e faixas pretas (dan). As faixas coloridas indicam o progresso dos iniciantes, enquanto as faixas pretas representam níveis avançados de conhecimento e experiência. Cada faixa exige tempo de prática, domínio técnico e postura ética.
+Além da parte técnica, a graduação no judô também reflete o crescimento pessoal e filosófico do praticante. Não basta saber executar os movimentos; é preciso demonstrar respeito, humildade e comprometimento com os princípios da arte. Por isso, cada faixa é uma conquista que vai além do tatame.
+</p>
+<h1>Filosofia Central</h1>
+<p>A filosofia do judô é baseada em dois pilares: Seiryoku Zen’yō (uso eficiente da energia) e Jita Kyōei (benefício mútuo). Esses princípios ensinam que o verdadeiro poder está em agir com inteligência, respeitar o outro e buscar o crescimento conjunto. O judô não é sobre vencer, mas sobre evoluir.
+Essa abordagem faz do judô uma prática que vai além da luta. Ele forma cidadãos conscientes, capazes de lidar com conflitos de forma equilibrada e ética. A filosofia do judô é aplicada tanto no tatame quanto na vida, promovendo valores que ajudam a construir uma sociedade mais justa e colaborativa.
+</p>
+<h1>Judô nos Jogos e Mídia</h1>
+<p>O judô é frequentemente retratado em jogos eletrônicos, filmes e animes por sua estética de combate limpa e estratégica. As projeções e quedas são visuais e impactantes, tornando as cenas dinâmicas e emocionantes. Personagens que usam judô costumam ser vistos como inteligentes, disciplinados e precisos.
+Além disso, o judô transmite valores que combinam bem com narrativas heroicas: honra, autocontrole e superação. Por isso, é comum ver protagonistas que usam esse estilo de luta como base, especialmente em histórias que valorizam o crescimento pessoal e o uso da força com responsabilidade.
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </main>
+<!-- BOTÕES DE AÇÃO -->
+<div style="display: flex; justify-content: center; gap: 20px; margin: 40px 0 120px;">
+  <!-- Botão de Voltar -->
+  <a href="index.html">
+    <button class="button">☝️☝️VOLTAR☝️☝️</button>
+  </a>
+
+  <!-- Botão de Download -->
+  <a href="trabalho_digitalizado.pdf" download>
+    <button class="button">📥 DOWNLOAD DE TRABALHO 📥</button>
+  </a>
+</div>
+
+  <footer>Teddy Riner — Judô Olímpico</footer>
+
+  
+</body>
+</html>
